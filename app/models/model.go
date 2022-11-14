@@ -3,7 +3,7 @@ package models
 import "time"
 
 type CommonIDField struct {
-	ID uint64 `gorm:"column:id,primaryKey;autoIncrement;" json:"id,omitempty"`
+	ID uint64 `gorm:"column:id;primaryKey;autoIncrement;" json:"id,omitempty"`
 }
 
 type CommonTimestampsField struct {

@@ -2,7 +2,7 @@ package user
 
 import "go-web/app/models"
 
-type name struct {
+type User struct {
 	models.CommonIDField
 
 	Name     string `json:"name,omitempty"`
