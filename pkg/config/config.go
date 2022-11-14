@@ -3,6 +3,7 @@ package config
 import (
 	"github.com/spf13/cast"
 	viperlib "github.com/spf13/viper"
+	"go-web/pkg/helpers"
 	"os"
 )
 
@@ -79,7 +80,7 @@ func Get(path string, defaultValue ...interface{}) string {
 
 func internalGet(path string, defaultValue ...interface{}) interface{} {
 	// config 或者环境变量不存在的情况
-	if !viper.IsSet(path) {
+	if !viper.IsSet(path) || helpers.Empty(viper.Get(path)) {
 		if len(defaultValue) > 0 {
 			return defaultValue[0]
 		}
