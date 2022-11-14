@@ -2,8 +2,8 @@ package bootstrap
 
 import (
 	"github.com/gin-gonic/gin"
-	"go-web/config"
 	"go-web/pkg/response"
+	"go-web/routes"
 	"net/http"
 	"strings"
 )
@@ -14,7 +14,7 @@ func SetupRoute(r *gin.Engine) {
 	registerGlobalMiddleWare(r)
 
 	// 注册 API 路由
-	config.RegisterAPIRoutes(r)
+	routes.RegisterAPIRoutes(r)
 
 	// 配置 404 路由
 	setup404Handler(r)
