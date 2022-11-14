@@ -23,6 +23,10 @@ func main() {
 
 	r := gin.New()
 
+	// 初始化 DB
+	bootstrap.SetupDB()
+
+	// 初始化路由绑定
 	bootstrap.SetupRoute(r)
 
 	err := r.Run(":" + config.Get("app.port"))
