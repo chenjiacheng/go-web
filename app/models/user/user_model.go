@@ -3,6 +3,7 @@ package user
 import (
 	"go-web/app/models"
 	"go-web/pkg/database"
+	"go-web/pkg/hash"
 	"go-web/pkg/logger"
 )
 
@@ -25,4 +26,9 @@ func (userModel *User) Create() (err error) {
 	}
 
 	return nil
+}
+
+// ComparePassword 密码是否正确
+func (userModel *User) ComparePassword(_password string) bool {
+	return hash.BcryptCheck(_password, userModel.Password)
 }
