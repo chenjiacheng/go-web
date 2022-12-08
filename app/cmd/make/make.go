@@ -76,6 +76,7 @@ func init() {
 		CmdMakePolicy,
 		CmdMakeMigration,
 		CmdMakeFactory,
+		CmdMakeSeeder,
 	)
 }
 
