@@ -20,7 +20,7 @@ func (sc *SignupController) IsPhoneExist(c *gin.Context) {
 	}
 
 	//  检查数据库并返回响应
-	response.SuccessJSON(c, gin.H{
+	response.JSON(c, gin.H{
 		"exist": user.IsPhoneExist(request.Phone),
 	})
 }
@@ -35,7 +35,7 @@ func (sc *SignupController) IsEmailExist(c *gin.Context) {
 	}
 
 	//  检查数据库并返回响应
-	response.SuccessJSON(c, gin.H{
+	response.JSON(c, gin.H{
 		"exist": user.IsEmailExist(request.Email),
 	})
 }

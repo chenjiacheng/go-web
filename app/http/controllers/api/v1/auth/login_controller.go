@@ -32,7 +32,7 @@ func (lc *LoginController) LoginByPhone(c *gin.Context) {
 		// 登录成功
 		token := jwt.NewJWT().IssueToken(user.GetStringID(), user.Name)
 
-		response.SuccessJSON(c, gin.H{
+		response.JSON(c, gin.H{
 			"token": token,
 		})
 	}
@@ -54,7 +54,7 @@ func (lc *LoginController) LoginByPassword(c *gin.Context) {
 
 	} else {
 		token := jwt.NewJWT().IssueToken(user.GetStringID(), user.Name)
-		response.SuccessJSON(c, gin.H{
+		response.JSON(c, gin.H{
 			"token": token,
 		})
 	}
@@ -68,7 +68,7 @@ func (lc *LoginController) RefreshToken(c *gin.Context) {
 	if err != nil {
 		response.Error(c, err, "令牌刷新失败")
 	} else {
-		response.SuccessJSON(c, gin.H{
+		response.JSON(c, gin.H{
 			"token": token,
 		})
 	}
