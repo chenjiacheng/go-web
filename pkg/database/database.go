@@ -2,6 +2,7 @@ package database
 
 import (
 	"database/sql"
+	"errors"
 	"fmt"
 	"go-web/pkg/config"
 	"gorm.io/gorm"
