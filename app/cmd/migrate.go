@@ -6,8 +6,6 @@ import (
 	"go-web/pkg/migrate"
 )
 
-var migrator *migrate.Migrator
-
 var CmdMigrate = &cobra.Command{
 	Use:   "migrate",
 	Short: "Run database migration",
@@ -26,14 +24,13 @@ func init() {
 	)
 }
 
-func initMigrator() {
-	// 初始化 migrator
-	migrator = migrate.NewMigrator()
+func migrator() *migrate.Migrator {
 	// 注册 database/migrations 下的所有迁移文件
 	migrations.Initialize()
+	// 初始化 migrator
+	return migrate.NewMigrator()
 }
 
 func runUp(cmd *cobra.Command, args []string) {
-	initMigrator()
-	migrator.Up()
+	migrator().Up()
 }
