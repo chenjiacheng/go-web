@@ -3,7 +3,7 @@ package requests
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/thedevsaddam/govalidator"
-	"go-web/app/http/requests/validators"
+	"go-web/app/requests/validators"
 )
 
 type VeifyCodePhoneRequest struct {

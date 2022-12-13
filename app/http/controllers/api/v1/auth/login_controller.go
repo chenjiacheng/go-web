@@ -3,7 +3,7 @@ package auth
 import (
 	"github.com/gin-gonic/gin"
 	v1 "go-web/app/http/controllers/api/v1"
-	"go-web/app/http/requests"
+	"go-web/app/requests"
 	"go-web/pkg/auth"
 	"go-web/pkg/jwt"
 	"go-web/pkg/response"

@@ -1,8 +1,8 @@
 package v1
 
 import (
-	"go-web/app/http/requests"
 	"go-web/app/models/user"
+	"go-web/app/requests"
 	"go-web/pkg/auth"
 	"go-web/pkg/response"
 
