@@ -4,8 +4,8 @@ package topic
 import (
 	"go-web/app/models"
 	"go-web/app/models/category"
+	"go-web/app/models/user"
 	"go-web/pkg/database"
-	"os/user"
 )
 
 type Topic struct {
