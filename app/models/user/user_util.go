@@ -1,7 +1,10 @@
 package user
 
 import (
+	"github.com/gin-gonic/gin"
+	"go-web/pkg/app"
 	"go-web/pkg/database"
+	"go-web/pkg/paginator"
 	"os/user"
 )
 
@@ -51,4 +54,17 @@ func GetByEmail(email string) (userModel User) {
 func All() (users []User) {
 	database.DB.Find(&users)
 	return
+}
+
+// Paginate 分页内容
+func Paginate(c *gin.Context, perPage int) ([]User, paginator.Paging) {
+	var users []User
+	paging := paginator.Paginate(
+		c,
+		database.DB.Model(User{}),
+		&users,
+		app.V1URL(database.TableName(&User{})),
+		perPage,
+	)
+	return users, paging
 }
